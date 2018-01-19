@@ -6,8 +6,10 @@ import PropTypes from 'prop-types';
 
 const Container = styled.div`
   height: 64px;
-  background: ${({isTop, bgColor}) =>
-    isTop ? `transparent` : bgColor ? bgColor : `rgba(51, 51, 51, .95);`};
+  background: ${({isTop, bgColor, theme}) =>
+    isTop
+      ? `transparent`
+      : theme ? theme.navColor : bgColor ? bgColor : `rgba(51, 51, 51, .95);`};
   width: 100%;
   z-index: 970;
   position: fixed;
