@@ -1,6 +1,7 @@
 const Colors = {
   themeRed: 'Red',
-  themeYellow: 'Yellow'
+  themeYellow: 'Yellow',
+  themeBlack: 'Black'
 };
 
 export default Colors;

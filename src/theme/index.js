@@ -7,7 +7,7 @@ const Primary = {
 
 const Secondary = {
   themeColor: colors.themeYellow,
-  navColor: colors.themeRed
+  navColor: colors.themeBlack
 };
 
 export {Primary, Secondary};
