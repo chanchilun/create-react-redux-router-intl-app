@@ -9,7 +9,7 @@ const Container = styled.div`
   background: ${({isTop, bgColor, theme}) =>
     isTop
       ? `transparent`
-      : theme ? theme.navColor : bgColor ? bgColor : `rgba(51, 51, 51, .95);`};
+      : bgColor ? bgColor : theme ? theme.navColor : `rgba(51, 51, 51, .95);`};
   width: 100%;
   z-index: 970;
   position: fixed;

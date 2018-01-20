@@ -8,7 +8,7 @@ import TopNavigation from './components/StyledTopNavigation';
 import LanguageSwitcher from './containers/LanguageSwitcher/index';
 import Grid from './components/Grid';
 import {ThemeProvider} from 'styled-components';
-import {Primary, Secondary} from './components/theme/index';
+import {Primary, Secondary} from './theme/index';
 
 class App extends Component {
   render() {
@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <ThemeProvider theme={Secondary}>
         <div className="App">
-          <TopNavigation bgColor={'orange'}>
+          <TopNavigation>
             <TopNavigation.Logo brandLogoUrl="http://www.brianfajardo.com/static/media/reactjs.0068a577.svg" />
             <TopNavigation.Menu>
               <Item key="home">
