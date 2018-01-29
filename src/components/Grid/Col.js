@@ -9,20 +9,31 @@ const unstyledCol = ({center, flexRow, children, ...props}) => {
 const mathArr = [12, 10, 8, 6, 4, 2, 1];
 
 const Col = styled(unstyledCol)`
-  ${({gb, lg, md, sm, xs, center, flexRow}) => `
+  ${({gb, xl, lg, md, sm, xs, center, flexRow, justify}) => `
     padding: 1.1em;
-    display:flex;
-    flex-wrap:wrap;
-    flex-direction:${flexRow ? `row` : `column`};
     img{
         height:100%;
     }
     
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction: ${
+      flexRow
+        ? `
+    row;
+    justify-content:${justify};
+    `
+        : `column;`
+    }
+    
+     ${(xl || gb) &&
+       `
     @media (min-width: 1281px) {
       grid-column:${
-        center && mathArr.indexOf(gb) > -1 ? `${mathArr.indexOf(gb) + 1}/` : ''
-      } span ${gb ? gb : `12`}
-        }
+        center && mathArr.indexOf(xl || gb) > -1
+          ? `${mathArr.indexOf(xl || gb) + 1}/`
+          : ''
+      } span ${gb}}`}
     
     ${(lg || gb) &&
       `@media (max-width: 1280px) {
@@ -66,7 +77,8 @@ Col.defaultProps = {
   lg: null,
   gb: 12,
   center: false,
-  flexRow: false
+  flexRow: false,
+  justify: null
 };
 
 Col.propTypes = {
@@ -76,7 +88,8 @@ Col.propTypes = {
   lg: PropTypes.number,
   gb: PropTypes.number,
   center: PropTypes.bool,
-  flexRow: PropTypes.bool
+  flexRow: PropTypes.bool,
+  justify: PropTypes.string
 };
 
 export default Col;

@@ -5,9 +5,10 @@ import Col from './Col';
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: ${({cols, autoCols}) =>
-    autoCols
-      ? `repeat(auto-fill, minmax(${autoCols}px, 1fr))`
+  grid-template-columns: ${({cols, autoColWidth}) =>
+    autoColWidth
+      ? `repeat(auto-fill, minmax(${autoColWidth}px, 1fr));
+        >div{grid-column:unset;}`
       : `repeat(${cols}, 1fr)`};
   @media (min-width: 1281px) {
     grid-column-gap: 24px;
@@ -24,7 +25,7 @@ const Container = styled.div`
   @media (max-width: 480px) {
     grid-column-gap: 16px;
   }
-  ${({fullHeight}) => fullHeight && `height:100vh;`};
+  ${({windowHeight}) => windowHeight && `height:100vh;`};
 `;
 
 const Grid = (props) => {
@@ -33,14 +34,14 @@ const Grid = (props) => {
 
 Grid.defaultProps = {
   cols: 12,
-  autoCols: 0,
-  fullHeight: false
+  autoColWidth: null,
+  windowHeight: false
 };
 
 Grid.propTypes = {
   cols: PropTypes.number,
-  autoCols: PropTypes.number,
-  fullHeight: PropTypes.bool
+  autoColWidth: PropTypes.number,
+  windowHeight: PropTypes.bool
 };
 
 Grid.Col = Col;
