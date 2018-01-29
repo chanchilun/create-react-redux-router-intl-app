@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const unstyledButton = ({children, buttonStyle, rounded, ...props}) => {
-  return;
-  <div>
-    <button style={buttonStyle} {...props}>
-      {children}
-    </button>
-  </div>;
+  return (
+    <div>
+      <button style={buttonStyle} {...props}>
+        {children}
+      </button>
+    </div>
+  );
 };
 
 const Button = styled(unstyledButton)`
