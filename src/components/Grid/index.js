@@ -2,30 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Col from './Col';
+import Row from './Row';
 
 const Container = styled.div`
-  display: grid;
-  grid-template-columns: ${({cols, autoColWidth}) =>
-    autoColWidth
-      ? `repeat(auto-fill, minmax(${autoColWidth}px, 1fr));
-        >div{grid-column:unset;}`
-      : `repeat(${cols}, 1fr)`};
-  @media (min-width: 1281px) {
-    grid-column-gap: 24px;
-  }
-  @media (max-width: 1280px) {
-    grid-column-gap: 24px;
-  }
-  @media (max-width: 1024px) {
-    grid-column-gap: 24px;
-  }
-  @media (max-width: 767px) {
-    grid-column-gap: 16px;
-  }
-  @media (max-width: 480px) {
-    grid-column-gap: 16px;
-  }
-  ${({windowHeight}) => windowHeight && `height:100vh;`};
+  display: flex;
+  flex-direction: column;
+  justify-content: ${({justify}) => justify};
+  ${({viewHeight}) => viewHeight && `min-height:100vh;`};
+  max-height: 100%;
 `;
 
 const Grid = (props) => {
@@ -33,17 +17,16 @@ const Grid = (props) => {
 };
 
 Grid.defaultProps = {
-  cols: 12,
-  autoColWidth: null,
-  windowHeight: false
+  viewHeight: false,
+  justify: 'start'
 };
 
 Grid.propTypes = {
-  cols: PropTypes.number,
-  autoColWidth: PropTypes.number,
-  windowHeight: PropTypes.bool
+  viewHeight: PropTypes.bool,
+  justify: PropTypes.string
 };
 
 Grid.Col = Col;
+Grid.Row = Row;
 
 export default Grid;

@@ -11,8 +11,8 @@ const mathArr = [12, 10, 8, 6, 4, 2, 1];
 const Col = styled(unstyledCol)`
   ${({gb, xl, lg, md, sm, xs, center, flexRow, justify}) => `
     padding: 1.1em;
-    img{
-        height:100%;
+    >img{
+        width:100%;
     }
     
     display:flex;
@@ -33,7 +33,7 @@ const Col = styled(unstyledCol)`
         center && mathArr.indexOf(xl || gb) > -1
           ? `${mathArr.indexOf(xl || gb) + 1}/`
           : ''
-      } span ${gb}}`}
+      } span ${xl || gb}}`}
     
     ${(lg || gb) &&
       `@media (max-width: 1280px) {

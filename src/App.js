@@ -9,6 +9,112 @@ import LanguageSwitcher from './containers/LanguageSwitcher/index';
 import Grid from './components/Grid';
 import {ThemeProvider} from 'styled-components';
 import {Primary, Secondary} from './theme/index';
+import AppContainer from './components/AppContainer';
+import {injectGlobal} from 'styled-components';
+
+injectGlobal`
+  //screen >=lg
+ @media (min-width: 1280px) {
+  body {
+   font-size: 16px;
+   line-height: 1.375em;
+   
+   h1{
+   font-size: 3em;
+    line-height: 1.05em;
+   }
+   
+   h2{
+   font-size: 2.25em;
+   line-height: 1.25em;
+   }
+   
+    h3{font-size: 1.75em;
+   line-height: 1.25em;
+    }
+    
+     h4{font-size:1.125em;
+   line-height: 1.22222222em;
+    }
+  }
+ }
+ 
+  //screen <=lg
+ @media (max-width: 1279px) {
+  body {
+   font-size: 16px;
+   line-height: 1.375em;
+   
+   h1{
+   font-size: 2.5em;
+   line-height: 1.125em;
+   }
+   
+   h2{
+   font-size: 2em;
+   line-height:	1.25em;
+    }
+   
+   h3{font-size: 1.5em;
+   line-height: 1.25em;
+    }
+    
+     h4{font-size:1.125em;
+   line-height: 1.22222222em;
+    }
+  }
+ }
+ 
+   //screen <=sm
+ @media (max-width: 767px) {
+   body {
+   font-size: 16px;
+   line-height: 1.25em;
+   
+   h1{
+   font-size: 2em;
+    line-height: 1.25em;
+   }
+   
+   h2{
+   font-size: 1.625em;
+   line-height: 1.15384615em;
+   }
+   
+   h3{font-size: 1.375em;
+   line-height: 1.13636364em;
+   }
+    h4{font-size:1.125em;
+   line-height: 1.11111111em;
+    }
+  }
+ }
+    
+  //screen <=xs
+ @media (max-width: 480px) {
+  body {
+   font-size: 16px;
+   line-height: 1.25em;
+   
+   h1{
+    font-size: 2em;
+    line-height: 1.25em;
+   }
+   
+   h2{
+   font-size: 1.625em;
+   line-height: 1.15384615em;
+   }
+   
+  h3{font-size: 1.375em;
+   line-height: 1.13636364em;
+   }
+  h4{font-size:1.125em;
+   line-height: 1.11111111em;
+    }
+  }
+ }
+`;
 
 class App extends Component {
   render() {
@@ -18,7 +124,7 @@ class App extends Component {
 
     return (
       <ThemeProvider theme={Secondary}>
-        <div className="App">
+        <AppContainer>
           <TopNavigation>
             <TopNavigation.Logo brandLogoUrl="http://www.brianfajardo.com/static/media/reactjs.0068a577.svg" />
             <TopNavigation.Menu>
@@ -31,29 +137,11 @@ class App extends Component {
               <LanguageSwitcher key="LanguageSwitcher" />
             </TopNavigation.Menu>
           </TopNavigation>
-          <Grid>
-            <Grid.Col xs={12} sm={4} md={6}>
-              <h1>abc</h1>
-              <h2>123</h2>
-            </Grid.Col>
-            <Grid.Col xs={12} sm={4} md={6}>
-              <h1>123</h1>
-              <h2>456</h2>
-            </Grid.Col>
-            <Grid.Col xs={12} sm={4} md={6}>
-              <h1>123</h1>
-              <h2>456</h2>
-            </Grid.Col>
-            <Grid.Col xs={12} sm={4} md={6}>
-              <h1>123</h1>
-              <h2>456</h2>
-            </Grid.Col>
-          </Grid>
           <main>
             <Routes childProps={childProps} />
           </main>
           <Footer brandLogoUrl="http://www.brianfajardo.com/static/media/reactjs.0068a577.svg" />
-        </div>
+        </AppContainer>
       </ThemeProvider>
     );
   }
