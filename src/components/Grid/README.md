@@ -1,13 +1,38 @@
 # Grid System
+	<Grid>
+	    <Grid.Row>
+		    <Grid.Col center xs={12} sm={8} md={4} lg={4} xl={2}>
+		       <h1>Col Element</h1>
+	        </Grid.Col>
+	        <Grid.Col justify={'flex-end'} center xs={8} sm={8} md={6} lg={4} xl={4}gb={12} >
+	        <h2>Col Element</h2>
+	        </Grid.Col>
+		</Grid.Row>
+		<Grid.Row>
+			<Grid.Col>
+				<h1>Col Element</h1>
+			</Grid.Col>
+		</Grid.Row>
+	<Grid>
 
 # Grid
 | Property | Description |Type | Default|
 |--|--|--|--|
-|cols|The total number of columns in grid system|number|12
-|autoColWidth|Grid item width (px) for rendering list of grid item, when Property "cols" is not set|number|0
-|windowHeight|Set the grid height to window viewport height|bool|false
-
+|viewHeight|Set the grid height to viewport height|bool|false
+|justify|set the justify-content as "start"/"center"/"end"/"space-around"/"space-between"|string|start
 **Remarks:**
+ - It is a column based flex container
+
+## Row
+| Property | Description |Type | Default|
+|--|--|--|--|
+|cols|The total number of columns in a row |number|12
+|autoColWidth|Grid item width (px) for rendering list of grid item, **if Property "cols" is not set**|number|0
+**Remarks:**
+ - It is a Grid container
+ - Gutter:
+	 - xs, sm: 16px
+	 - md, lg, xl: 24px
  - Property "cols" is for setting the layout
  - Property "autoColWidth" is for rendering a list of items
 
