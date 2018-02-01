@@ -14,22 +14,22 @@ const Button = styled(unstyledButton)`
   ${({rounded, type, theme}) => `
     background-color:${
       type === 'positive'
-        ? theme.buttonPositiveBGColor
+        ? theme.buttonPositiveBgColor
         : type === 'negative'
-          ? theme.buttonNegativeBGColor
-          : type === 'basic' && theme.buttonBasicBGColor
+          ? theme.buttonNegativeBgColor
+          : type === 'basic' && theme.buttonBasicBgColor
     };
     border:none;
     color:white;
-    padding:0.5em 1em;
+    padding:0.5em 0.5em;
    ${rounded && `border-radius:${'4px'};`} 
     :hover{
     background-color:${
       type === 'positive'
-        ? theme.buttonHoverPositiveBGColor
+        ? theme.buttonHoverPositiveBgColor
         : type === 'negative'
-          ? theme.buttonHoverNegativeBGColor
-          : type === 'basic' && theme.buttonHoverBasicBGColor
+          ? theme.buttonHoverNegativeBgColor
+          : type === 'basic' && theme.buttonHoverBasicBgColor
     };
     }
 `};

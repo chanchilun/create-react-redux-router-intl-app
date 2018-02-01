@@ -17,15 +17,8 @@ const Col = styled(unstyledCol)`
     
     display:flex;
     flex-wrap:wrap;
-    flex-direction: ${
-      flexRow
-        ? `
-    row;
+    flex-direction: ${flexRow ? `row;` : `column;`}
     justify-content:${justify};
-    `
-        : `column;`
-    }
-    
      ${(xl || gb) &&
        `
     @media (min-width: 1281px) {
@@ -78,7 +71,7 @@ Col.defaultProps = {
   gb: 12,
   center: false,
   flexRow: false,
-  justify: null
+  justify: 'flex-start'
 };
 
 Col.propTypes = {
