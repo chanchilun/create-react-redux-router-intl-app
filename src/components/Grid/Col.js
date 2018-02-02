@@ -7,10 +7,9 @@ const unstyledCol = ({center, flexRow, children, ...props}) => {
 };
 
 const mathArr = [12, 10, 8, 6, 4, 2, 1];
-
+const totalCol = 12;
 const Col = styled(unstyledCol)`
   ${({gb, xl, lg, md, sm, xs, center, flexRow, justify}) => `
-    padding: 1.1em;
     >img{
         width:100%;
     }
@@ -18,49 +17,38 @@ const Col = styled(unstyledCol)`
     display:flex;
     flex-wrap:wrap;
     flex-direction: ${flexRow ? `row;` : `column;`}
+    align-items: center;
     justify-content:${justify};
      ${(xl || gb) &&
-       `
-    @media (min-width: 1281px) {
-      grid-column:${
-        center && mathArr.indexOf(xl || gb) > -1
-          ? `${mathArr.indexOf(xl || gb) + 1}/`
-          : ''
-      } span ${xl || gb}}`}
+       ` @media (min-width: 1281px) {
+        width:${(xl || gb) / totalCol * 100}%;
+        padding: 0 12px;
+     }`}
     
     ${(lg || gb) &&
       `@media (max-width: 1280px) {
-      grid-column:${
-        center && mathArr.indexOf(lg || gb) > -1
-          ? `${mathArr.indexOf(lg || gb) + 1}/`
-          : ''
-      } span ${lg || gb}}`}
-    
-    
+        width:${(lg || gb) / totalCol * 100}%;
+        padding: 0 12px;
+      }`}
+
     ${(md || gb) &&
       `@media (max-width: 1024px) {
-      grid-column:${
-        center && mathArr.indexOf(md || gb) > -1
-          ? `${mathArr.indexOf(md || gb) + 1}/`
-          : ''
-      } span ${md || gb}}`}
-    
-    
+      width:${(md || gb) / totalCol * 100}%;
+      padding: 0 12px;
+      }`}
+
     ${(sm || gb) &&
       `@media (max-width: 767px) {
-      grid-column:${
-        center && mathArr.indexOf(sm || gb) > -1
-          ? `${mathArr.indexOf(sm || gb) + 1}/`
-          : ''
-      } span ${sm || gb}}`}
-    
+      width:${(sm || gb) / totalCol * 100}%;
+      padding: 0 12px;
+      }`}
+
     ${(xs || gb) &&
       `@media (max-width: 480px) {
-      grid-column:${
-        center && mathArr.indexOf(xs || gb) > -1
-          ? `${mathArr.indexOf(xs || gb) + 1}/`
-          : ''
-      } span ${xs || gb}}`}`};
+      width:${(xs || gb) / totalCol * 100}%;
+      padding: 0 12px;
+      }`}
+`};
 `;
 
 Col.defaultProps = {

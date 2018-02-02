@@ -6,13 +6,15 @@ import Routes from './Routes';
 import Footer from './components/Footer/Footer';
 import TopNavigation from './components/StyledTopNavigation';
 import LanguageSwitcher from './containers/LanguageSwitcher/index';
-import Grid from './components/Grid';
 import {ThemeProvider} from 'styled-components';
 import {Primary, Secondary} from './theme/index';
 import AppContainer from './components/AppContainer';
 import {injectGlobal} from 'styled-components';
 
 injectGlobal`
+    h1,h2,h3,h4{   
+      color:#3c4859;
+    }
   //screen >=lg
  @media (min-width: 1280px) {
   body {
@@ -121,7 +123,6 @@ class App extends Component {
     const childProps = {
       isAuthenticated: false
     };
-
     return (
       <ThemeProvider theme={Secondary}>
         <AppContainer>

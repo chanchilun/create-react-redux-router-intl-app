@@ -5,7 +5,6 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 const Container = styled.div`
-  height: 64px;
   background: ${({isTop, bgColor, theme}) =>
     isTop
       ? `transparent`

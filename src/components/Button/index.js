@@ -2,49 +2,87 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-const unstyledButton = ({children, buttonStyle, type, rounded, ...props}) => {
+const unstyledButton = ({
+  children,
+  buttonStyle,
+  outline,
+  type,
+  rounded,
+  ...props
+}) => {
   return (
-    <button style={buttonStyle} {...props}>
+    <button type={'button'} style={buttonStyle} {...props}>
       {children}
     </button>
   );
 };
 
 const Button = styled(unstyledButton)`
-  ${({rounded, type, theme}) => `
+  ${({rounded, outline, type, theme}) => `
+    transition: background-color 0.3s ease;
     background-color:${
-      type === 'positive'
-        ? theme.buttonPositiveBgColor
-        : type === 'negative'
-          ? theme.buttonNegativeBgColor
-          : type === 'basic' && theme.buttonBasicBgColor
+      outline
+        ? `white`
+        : type === 'positive'
+          ? theme.buttonPositiveColor
+          : type === 'negative'
+            ? theme.buttonNegativeColor
+            : type === 'basic' && theme.buttonBasicColor
     };
-    border:none;
-    color:white;
+    
+    border-width:${outline ? '1px' : '0'};
+    border-color:${
+      outline
+        ? type === 'positive'
+          ? theme.buttonPositiveColor
+          : type === 'negative'
+            ? theme.buttonNegativeColor
+            : type === 'basic' && theme.buttonBasicColor
+        : `none`
+    };
+    
+    color:${
+      outline
+        ? type === 'positive'
+          ? theme.buttonPositiveColor
+          : type === 'negative'
+            ? theme.buttonNegativeColor
+            : type === 'basic' && theme.buttonBasicColor
+        : `white`
+    };
+        
     padding:0.5em 0.5em;
    ${rounded && `border-radius:${'4px'};`} 
     :hover{
     background-color:${
-      type === 'positive'
-        ? theme.buttonHoverPositiveBgColor
-        : type === 'negative'
-          ? theme.buttonHoverNegativeBgColor
-          : type === 'basic' && theme.buttonHoverBasicBgColor
+      !outline
+        ? type === 'positive'
+          ? theme.buttonHoverPositiveColor
+          : type === 'negative'
+            ? theme.buttonHoverNegativeColor
+            : type === 'basic' && theme.buttonHoverBasicColor
+        : type === 'positive'
+          ? theme.buttonPositiveColor
+          : type === 'negative'
+            ? theme.buttonNegativeColor
+            : type === 'basic' && theme.buttonBasicColor
     };
-    }
+     color:${`white`};
 `};
 `;
 
 Button.defaultProps = {
   rounded: false,
   buttonStyle: null,
-  type: 'basic'
+  type: 'basic',
+  outline: false
 };
 
 Button.propTypes = {
   rounded: PropTypes.bool,
   buttonStyle: PropTypes.object,
-  type: PropTypes.string
+  type: PropTypes.string,
+  outline: PropTypes.bool
 };
 
 export default Button;
