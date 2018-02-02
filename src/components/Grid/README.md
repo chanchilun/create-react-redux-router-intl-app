@@ -20,6 +20,7 @@
 |--|--|--|--|
 |viewHeight|Set the grid height to viewport height|bool|false
 |justify|set the justify-content as "flex-start"/"center"/"flex-end"/"space-around"/"space-between"|string|flex-start
+
 **Remarks:**
  - It is a column based flex container
 
@@ -29,6 +30,7 @@
 |cols|The total number of columns in a row |number|12
 |autoColWidth|Grid item width (px) for rendering list of grid item, **if Property "cols" is not set**|number|0
 |justify|set the justify-content as "flex-start"/"center"/"flex-end"/"space-around"/"space-between"|string|flex-start
+
 **Remarks:**
  - It is a flex container
  - Gutter: 
