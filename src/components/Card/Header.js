@@ -33,7 +33,7 @@ const Container = styled.div`
 const Header = ({title, cover, ...props}) => {
   return (
     <Wrapper {...props}>
-      {cover && <img src={cover} />}
+      {cover && <img alt={''} src={cover} />}
       <Container>{title}</Container>
     </Wrapper>
   );

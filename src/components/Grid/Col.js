@@ -6,10 +6,9 @@ const unstyledCol = ({center, flexRow, children, ...props}) => {
   return <div {...props}>{children}</div>;
 };
 
-const mathArr = [12, 10, 8, 6, 4, 2, 1];
 const totalCol = 12;
 const Col = styled(unstyledCol)`
-  ${({gb, xl, lg, md, sm, xs, center, flexRow, justify}) => `
+  ${({gb, xl, lg, md, sm, xs, flexRow, justify}) => `
     >img{
         width:100%;
     }

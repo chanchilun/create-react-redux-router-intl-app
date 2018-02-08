@@ -10,11 +10,15 @@ import {ThemeProvider} from 'styled-components';
 import {Primary, Secondary} from './theme/index';
 import AppContainer from './components/AppContainer';
 import {injectGlobal} from 'styled-components';
+import {history} from './store';
+import {alertActions} from './actions';
+import {connect} from 'react-redux';
 
 injectGlobal`
-    h1,h2,h3,h4{   
-      color:#3c4859;
-    }
+  h1,h2,h3,h4{   
+    color:#3c4859;
+  }
+  
   //screen >=lg
  @media (min-width: 1280px) {
   body {
@@ -119,9 +123,18 @@ injectGlobal`
 `;
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    history.listen((location, action) => {
+      // clear alert on location change
+      this.props.clearAlert();
+      console.log('change');
+    });
+  }
+
   render() {
     const childProps = {
-      isAuthenticated: false
+      isAuthenticated: this.props.loggedIn
     };
     return (
       <ThemeProvider theme={Secondary}>
@@ -148,4 +161,14 @@ class App extends Component {
   }
 }
 
-export default withRouter(App);
+const mapDispatchToProps = (dispatch) => ({
+  clearAlert: () => dispatch(alertActions.clear())
+});
+
+const mapStateToProps = (state) => ({
+  loggedIn: state.authentication.loggedIn
+});
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
+
+//export default withRouter(App);
