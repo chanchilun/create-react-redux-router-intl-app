@@ -8,17 +8,19 @@ const Container = styled.div`
   ${({bordered, theme, hoverable}) => `
     display: block;
     ${bordered && `border: 1px solid ${theme.cardColor}`};
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.09);
+    h1,h2,h3,h4{
+        margin-bottom:1.1em;
+    }
     border-radius: 2px;
-    -webkit-transition: all .3s;
     transition: all .3s ease;
     :hover{
         ${hoverable &&
           `
         cursor:pointer;
-        -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
         border-color: rgba(0, 0, 0, 0.09);`}
-    }
+        }
     `};
 `;
 
@@ -39,7 +41,7 @@ Card.defaultProps = {
 };
 
 Card.propTypes = {
-  title: PropTypes.object,
+  title: PropTypes.any,
   bordered: PropTypes.bool,
   hoverable: PropTypes.bool,
   cover: PropTypes.string

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import {selectTheme} from '../../helpers';
 
 const Wrapper = styled.div`
   img {
@@ -13,9 +14,9 @@ const Wrapper = styled.div`
 const Container = styled.div`
   text-overflow: ellipsis;
   overflow: hidden;
-  white-space: nowrap;
+  //white-space: nowrap;
   font-weight: 500;
-  border-bottom: 1px solid ${({theme}) => theme.cardColor};
+  border-bottom: 0px solid ${selectTheme('cardColor')};
   padding: 22px;
   border-radius: 2px 2px 0 0;
   min-height: 40px;
@@ -26,7 +27,7 @@ const Container = styled.div`
   h2,
   h3,
   h4 {
-    font-weight: bold;
+    font-weight: 400;
   }
 `;
 
@@ -34,7 +35,7 @@ const Header = ({title, cover, ...props}) => {
   return (
     <Wrapper {...props}>
       {cover && <img alt={''} src={cover} />}
-      <Container>{title}</Container>
+      {title && <Container>{title}</Container>}
     </Wrapper>
   );
 };
@@ -45,7 +46,7 @@ Header.defaultProps = {
 };
 
 Header.propTypes = {
-  title: PropTypes.object,
+  title: PropTypes.any,
   cover: PropTypes.string
 };
 

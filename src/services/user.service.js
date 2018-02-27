@@ -4,7 +4,8 @@ const login = (userName, password) => {
   const requestOptions = {
     method: 'POST',
     withCredentials: true,
-    headers: loginHeader(userName, password)
+    headers: loginHeader(userName, password),
+    body: JSON.stringify({hello: '123'})
   };
 
   return fetch('http://localhost:3001/login', requestOptions)

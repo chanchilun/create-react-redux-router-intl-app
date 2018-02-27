@@ -91,18 +91,19 @@ const ColorBuilder = (p, from, to) => {
 };
 
 const Colors = {
-  themeWhite: 'White',
-  themeRed: 'Red',
-  themeYellow: 'Yellow',
-  themeBlack: 'Black',
-  themeBlue: '#108ee9',
-  themeGrey: '#9eacbe',
-  themeDarkGrey: '#3c4859',
-  transparent: 'transparent',
-  buttonBasic: '#34BEB7',
-  buttonPositive: '#31E95D',
-  buttonNegative: '#E9585D',
-  smokeWhite: '#e8e8e8'
+  White: '#FFFFFF',
+  Red: '#ff0000',
+  Yellow: '#ffff00',
+  Black: '#000000',
+  DodgerBlue: '#108ee9',
+  Nepal: '#9eacbe',
+  BlueZodiac: '#3c4859',
+  Transparent: 'Transparent',
+  Malachite: '#31E95D',
+  Flamingo: '#E9585D',
+  SmokeWhite: '#e8e8e8',
+  Shamrock: '#34BEB7',
+  GullGray: '#9FACBD'
 };
 
 export {Colors, ColorBuilder};

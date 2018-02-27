@@ -1,51 +1,53 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import {Sizes} from '../../theme';
+
+const TOTAL_COLS = 12;
 
 const unstyledCol = ({center, flexRow, children, ...props}) => {
   return <div {...props}>{children}</div>;
 };
 
-const totalCol = 12;
 const Col = styled(unstyledCol)`
   ${({gb, xl, lg, md, sm, xs, flexRow, justify}) => `
-    >img{
+    >h1,h2,h3,h4,div,img{
         width:100%;
     }
     
     display:flex;
     flex-wrap:wrap;
     flex-direction: ${flexRow ? `row;` : `column;`}
-    align-items: center;
+    align-items: flex-start;
     justify-content:${justify};
      ${(xl || gb) &&
-       ` @media (min-width: 1281px) {
-        width:${(xl || gb) / totalCol * 100}%;
-        padding: 0 12px;
+       ` @media (min-width: ${Sizes.xl}px) {
+        width:${(xl || lg || gb) / TOTAL_COLS * 100}%;
+        padding: 0 ${Sizes.xlGutter}px;
      }`}
     
-    ${(lg || gb) &&
-      `@media (max-width: 1280px) {
-        width:${(lg || gb) / totalCol * 100}%;
-        padding: 0 12px;
+    ${(lg || xl || gb) &&
+      `@media (max-width: ${Sizes.lg}px) {
+        width:${(lg || gb) / TOTAL_COLS * 100}%;
+        padding: 0 ${Sizes.lgGutter}px;
       }`}
 
     ${(md || gb) &&
-      `@media (max-width: 1024px) {
-      width:${(md || gb) / totalCol * 100}%;
-      padding: 0 12px;
+      `@media (max-width: ${Sizes.md}px) {
+      width:${(md || gb) / TOTAL_COLS * 100}%;
+      padding: 0 ${Sizes.mdGutter}px;
       }`}
 
     ${(sm || gb) &&
-      `@media (max-width: 767px) {
-      width:${(sm || gb) / totalCol * 100}%;
-      padding: 0 12px;
+      `@media (max-width:${Sizes.sm}px) {
+      width:${(sm || gb) / TOTAL_COLS * 100}%;
+      padding: 0 ${Sizes.smGutter}px;
       }`}
 
-    ${(xs || gb) &&
-      `@media (max-width: 480px) {
-      width:${(xs || gb) / totalCol * 100}%;
-      padding: 0 12px;
+    ${(xs || sm || gb) &&
+      `@media (max-width: ${Sizes.xs}x) {
+      width:${(xs || sm || gb) / TOTAL_COLS * 100}%;
+      padding: 0 ${Sizes.xsGutter}px;
       }`}
 `};
 `;
@@ -55,7 +57,7 @@ Col.defaultProps = {
   sm: null,
   md: null,
   lg: null,
-  gb: 12,
+  gb: TOTAL_COLS,
   center: false,
   flexRow: false,
   justify: 'flex-start'

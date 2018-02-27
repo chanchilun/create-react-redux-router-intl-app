@@ -1,0 +1,48 @@
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+}
+
+.welcomeSection {
+  h1,
+  h2,
+  h3 {
+    color: white;
+  }
+  height: 100vh;
+  padding-bottom: 0;
+}
+
+.partner-section {
+  padding: 0;
+  img {
+    max-height: 50px;
+    object-fit: contain;
+  }
+}
+
+.actionSection {
+  h1,
+  h2,
+  h3 {
+    color: white;
+  }
+}
+
+.subHead {
+  color: #9eacbe;
+}
+
+.card {
+  img {
+    height: 250px;
+    margin: 0 auto;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

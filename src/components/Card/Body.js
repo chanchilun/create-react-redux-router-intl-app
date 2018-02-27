@@ -10,6 +10,9 @@ const Container = styled.div`
   span {
     margin: 5px 0;
   }
+  img {
+    object-fit: scale-down;
+  }
 `;
 
 const Body = (props) => {

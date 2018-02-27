@@ -11,5 +11,8 @@ export const authHeader = () => {
 
 export const loginHeader = (userName, password) => {
   // return authorization header of user name and password
-  return {Authorization: 'Basic ' + btoa(userName + ':' + password)};
+  return {
+    Authorization: 'Basic ' + btoa(userName + ':' + password),
+    'Content-Type': 'application/json'
+  };
 };

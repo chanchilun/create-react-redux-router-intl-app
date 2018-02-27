@@ -4,6 +4,7 @@
   "private": false,
   "dependencies": {
     "antd": "^2.13.8",
+    "axios": "^0.17.1",
     "bootstrap": "^3.3.7",
     "fs": "0.0.1-security",
     "glob": "^7.1.2",
@@ -35,7 +36,9 @@
     "build": "cross-env GENERATE_SOURCEMAP=false npm-run-all build-css build-js && react-snap",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,json,css,scss}": [
@@ -51,6 +54,11 @@
     "react-snap": "^0.8.1",
     "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
-    "prettier": "^1.9.2"
+    "prettier": "^1.9.2",
+    "@storybook/react": "^3.3.11",
+    "@storybook/addon-actions": "^3.3.11",
+    "@storybook/addon-links": "^3.3.11",
+    "@storybook/addons": "^3.3.11",
+    "babel-core": "^6.26.0"
   }
 }

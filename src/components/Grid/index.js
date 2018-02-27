@@ -8,8 +8,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: ${({justify}) => justify};
-  ${({viewHeight}) => viewHeight && `min-height:100vh;`};
-  max-height: 100%;
+  height: 100%;
 `;
 
 const Grid = (props) => {
@@ -17,12 +16,10 @@ const Grid = (props) => {
 };
 
 Grid.defaultProps = {
-  viewHeight: false,
   justify: 'start'
 };
 
 Grid.propTypes = {
-  viewHeight: PropTypes.bool,
   justify: PropTypes.string
 };
 
